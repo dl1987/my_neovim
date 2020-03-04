@@ -20,7 +20,11 @@ if dein#load_state('~/.cache/dein')
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
     call dein#add('Shougo/deoplete.nvim')
 
-    call dein#add('Shougo/denite.nvim')
+    call dein#add('Shougo/denite.nvim',
+                \{
+                \'on_event':'VimEnter',
+                \'hook_post_source':'call plugins#denite#setup#postSource()'
+                \})
 
     if dein#check_install()
         call dein#update()
