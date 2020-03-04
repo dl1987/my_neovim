@@ -25,16 +25,22 @@ if dein#load_state('~/.cache/dein')
                 \'on_event':'VimEnter',
                 \'hook_post_source':'call plugins#denite#setup#postSource()'
                 \})
+    call dein#add('ozelentok/denite-gtags',
+                \{
+                \'on_event':'VimEnter',
+                \'hook_post_source':'call plugins#denite_gtags#setup#postSource()'
+                \})
     call dein#add('Shougo/defx.nvim',
                 \{
                 \'on_event':'VimEnter',
                 \'hook_post_source':'call plugins#defx#setup#postSource()'
                 \})
+    call dein#add('tpope/vim-commentary')
     call dein#add('tpope/vim-fugitive')
     call dein#add('airblade/vim-gitgutter',
                 \{
                 \'on_event':'VimEnter',
-                \'hook_post_source':'call plugins#gitgutter#setup#postSoure()'
+                \'hook_post_source':'call plugins#gitgutter#setup#postSource()'
                 \})
 
     if dein#check_install()
