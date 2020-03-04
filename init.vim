@@ -30,6 +30,12 @@ if dein#load_state('~/.cache/dein')
                 \'on_event':'VimEnter',
                 \'hook_post_source':'call plugins#defx#setup#postSource()'
                 \})
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('airblade/vim-gitgutter',
+                \{
+                \'on_event':'VimEnter',
+                \'hook_post_source':'call plugins#gitgutter#setup#postSoure()'
+                \})
 
     if dein#check_install()
         call dein#update()
