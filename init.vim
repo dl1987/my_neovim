@@ -42,6 +42,11 @@ if dein#load_state('~/.cache/dein')
                 \'on_event':'VimEnter',
                 \'hook_post_source':'call plugins#gitgutter#setup#postSource()'
                 \})
+    call dein#add('octol/vim-cpp-enhanced-highlight',
+                \{
+                \'on_event':'VimEnter',
+                \'hook_post_source':'call plugins#vim_cpp_enhanced_highlight#setup#postSource()'
+                \})
 
     if dein#check_install()
         call dein#update()
