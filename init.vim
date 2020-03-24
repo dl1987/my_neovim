@@ -59,3 +59,14 @@ endif
 
 filetype plugin indent on
 syntax enable
+
+autocmd BufNewFile,BufRead *.log setfiletype log
+autocmd BufNewFile,BufRead *.LOG setfiletype log
+autocmd BufNewFile,BufRead *.out setfiletype log
+
+highlight ColorColumn ctermbg=red
+
+nnoremap <space>l :set filetype=log<CR>
+nnoremap <silent> <Right> :bn <CR>
+nnoremap <silent> <Left> :bp <CR>
+
