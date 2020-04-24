@@ -1,5 +1,5 @@
 function! plugins#defx#setup#postSource()
-    noremap <leader>T :Defx<CR>
+    noremap <leader>T :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
     autocmd Filetype defx call s:defx_key_mappings()
 endfunction
 

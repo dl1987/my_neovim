@@ -3,14 +3,26 @@
 "General settings
 set number 		"show line numbers
 set showmatch		"highlight matching braces
+set ignorecase
 set smartcase		"enable smart case search
 
 set shiftwidth=4	"number of auto indent spaces
 set softtabstop=4	"number of spaces per tab
 set smartindent
 set expandtab		"tabs are spaces
+" set autochdir           "set current directory
 
 let mapleader=','
+
+"searching
+set incsearch           "search as characters entered
+set hlsearch            "highlight matches
+"turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+"remove trailing whitespaces
+nnoremap <C-space> :%s/\s\+$//e<CR>
+
+noremap <leader>sf :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
@@ -52,6 +64,7 @@ if dein#load_state('~/.cache/dein')
                 \'on_event':'VimEnter',
                 \'hook_post_source':'call plugins#vim_ttcn#setup#postSource()'
                 \})
+    call dein#add('matfranczyk/highlighter.vim')
 
     if dein#check_install()
         call dein#update()
@@ -81,6 +94,9 @@ endfunction
 
 function! __vimrc_ttcn_buffers()
     setlocal colorcolumn=130
+    nnoremap <buffer> <F3> <C-]>
+    nnoremap <buffer> <F2> <C-T>
+    set tags=/var/fpwork/dlapczyn/bts_sc_cplane/tags
 endfunction
 
 augroup VimrcBuffersSettingsAutoCmd

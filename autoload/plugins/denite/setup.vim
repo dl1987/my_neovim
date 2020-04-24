@@ -4,6 +4,16 @@ function! plugins#denite#setup#postSource()
     noremap <leader>fr :Denite file/rec<CR>
     autocmd Filetype denite call s:denite_buffer_mappings()
     autocmd FileType denite-filter call s:denite_filter_mappings()
+
+    call denite#custom#var('file/rec', 'command',
+                \['ag',
+                \'--follow', '--nocolor', '--nogroup',
+                \'--ignore', './lteDo',
+                \'--ignore', './T_Tools',
+                \'--ignore', './misc',
+                \'--ignore', './_coalescence',
+                \'-g', ''])
+
 endfunction
 
 function! s:denite_buffer_mappings()
