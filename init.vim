@@ -8,6 +8,7 @@ set smartcase		"enable smart case search
 
 set shiftwidth=4	"number of auto indent spaces
 set softtabstop=4	"number of spaces per tab
+set autoindent
 set smartindent
 set expandtab		"tabs are spaces
 " set autochdir           "set current directory
