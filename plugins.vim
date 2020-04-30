@@ -39,6 +39,7 @@ if dein#load_state('~/.cache/dein')
                 \'hook_post_source':'call plugins#vim_ttcn#setup#postSource()'
                 \})
     call dein#add('matfranczyk/highlighter.vim')
+    call dein#add('jiangmiao/auto-pairs')
 
     if dein#check_install()
         call dein#update()
